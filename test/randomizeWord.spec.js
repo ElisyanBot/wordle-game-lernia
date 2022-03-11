@@ -7,9 +7,8 @@ describe("testing the returned value of randomizeWord()", () => {
     expect(word.length).toBe(4);
   });
 
-  test("length of total letters in returned word", () => {
+  test("only containing 1 repeated char i mulitChar = false", () => {
     let word = randomizeWord(["alla", "cykla", "hallå"], 5, false);
-
     const countedChars = [];
     for (let i = 0; i < word.length; i++) {
       let totalChar = 0;
@@ -23,6 +22,8 @@ describe("testing the returned value of randomizeWord()", () => {
     countedChars.forEach((letter) => {
       expect(letter.total).toEqual(1);
     });
+
+    expect(word).toBe("cykla")
   });
 });
 
