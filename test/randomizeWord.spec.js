@@ -1,14 +1,17 @@
 import randomizeWord from "../src/randomizeWord.js";
 let testArray;
 
+
 describe("testing the returned value of randomizeWord()", () => {
-  test("lenght of returned word", () => {
-    let word = randomizeWord(testArray, 4, 1);
+  //Ser till att jag fått den längden på ordet som jag frågade efter
+  test("length of returned word", () => {
+    let word = randomizeWord(testArray, 4, true);
     expect(word.length).toBe(4);
   });
 
+  //kollar att efter testet har körts enbart körs med ord som innehåller enskilda bokstäver.
   test("only containing 1 repeated char i mulitChar = false", () => {
-    let word = randomizeWord(["alla", "cykla", "hallå"], 5, false);
+    let word = randomizeWord(testArray, 3, false);
     const countedChars = [];
     for (let i = 0; i < word.length; i++) {
       let totalChar = 0;
@@ -22,12 +25,8 @@ describe("testing the returned value of randomizeWord()", () => {
     countedChars.forEach((letter) => {
       expect(letter.total).toEqual(1);
     });
-
-    expect(word).toBe("cykla")
   });
 });
-
-
 
 testArray = [
   "the",
