@@ -3,19 +3,10 @@ import spellCheck from "../src/spellCheck.js";
 /*alla dessa testen testar om rusultatet blir rätt under olika input. 
 tänker att det är det viktiagste att testa i denna funktion. */
 describe('checks that indicator of letter are "true"', () => {
-  test('test that the "correct" indictor works', () => {
-    const checkedWord = spellCheck("cykla", "cyklå");
-    expect(checkedWord[4].result).toBe("incorrect");
-  });
-
-  test('test that the "incorrect" indictor works', () => {
-    const checkedWord = spellCheck("cykla", "hallå");
-    expect(checkedWord[2].result).toBe("incorrect");
-    expect(checkedWord[4].result).toBe("incorrect");
-  });
-
-  test('test that the "misplaced" indictor works', () => {
+  test('test that result: "correc" && "incorrect" && "misplaced" works', () => {
     const checkedWord = spellCheck("abborre", "abibrer");
+    expect(checkedWord[1].result).toBe("correct");
+    expect(checkedWord[2].result).toBe("incorrect");
     expect(checkedWord[3].result).toBe("misplaced");
     expect(checkedWord[4].result).not.toBe("misplaced");
   });
