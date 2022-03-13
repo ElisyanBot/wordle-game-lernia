@@ -12,19 +12,14 @@ describe("testing the returned value of randomizeWord()", () => {
   //kollar att efter testet har körts enbart körs med ord som innehåller enskilda bokstäver.
   test("only containing 1 repeated char i mulitChar = false", () => {
     let word = randomizeWord(testArray, 3, false);
-    const countedChars = [];
+    
     for (let i = 0; i < word.length; i++) {
       let totalChar = 0;
       for (let j = 0; j < word.length; j++) {
         if (word[i] === word[j]) totalChar++;
       }
-      countedChars.push({ letter: word[i], total: totalChar });
+      expect(totalChar).toEqual(1);
     }
-
-    //checking each letters totalt count
-    countedChars.forEach((letter) => {
-      expect(letter.total).toEqual(1);
-    });
   });
 });
 

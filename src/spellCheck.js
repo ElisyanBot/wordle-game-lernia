@@ -3,13 +3,11 @@ export default function spellCheck(fixedWord, inputWord) {
     fixedWord,
     inputWord
   );
-  //loop
   /* order of "incorrect" and "misplaced" is !Importent, if it only finds on char that match and
      it is accurate by index it will make the letter "incorrect" but if it finds another one it will
      create result: "misplaced" */
   inputArr.forEach((input) => {
     if (input.result === "correct") return; //make the loop skip allready correct letters
-    //second loop
     fixedArr.forEach((fixed) => {
       if (input.letter === fixed.letter && fixed.accurate == true) {
         input.result = "incorrect";
@@ -44,7 +42,3 @@ function lettersAtCorrIndex(fixed, input) {
 
   return { fix, inp };
 }
-
-//console.log(spellCheck("hallå", "cykla"));
-//console.log(spellCheck("cykla", "hallå"));
-//console.log(spellCheck("cykla", "cykla"));

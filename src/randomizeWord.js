@@ -5,11 +5,12 @@ export default function randomizeWord(
   multiChars = true
 ) {
   let filteredArray = [];
-  //same length on each word sort
+
   if (wordLength <= 0) {
     filteredArray = wordArr;
   }
-
+  
+  //same length on each word sort
   wordArr.forEach((word) => {
     if (word.length !== wordLength) return;
     filteredArray.push(word);
@@ -33,24 +34,18 @@ function countChars(arrayOfWords) {
   const singleWordArr = [];
   
   arrayOfWords.forEach((word) => {
-    let countedChars = [];
+    let isSingle = true;
     //check every char in the word if it reapeats
     for (let i = 0; i < word.length; i++) {
       let totalChar = 0;
       for (let j = 0; j < word.length; j++) {
         if (word[i] === word[j]) totalChar++;
       }
-      countedChars.push(totalChar);
+      if (totalChar > 1) isSingle = false;
     }
-
-    let isSingle = true;
-    countedChars.forEach((number) => {
-      if (number > 1) isSingle = false;
-    });
-    
     if (isSingle) singleWordArr.push(word);
   });
 
-  //only letting words with char counted once.
+  //only leting words with char counted once.
   return singleWordArr;
 }
