@@ -20,12 +20,6 @@ export default function randomizeWord(
     filteredArray = countChars(filteredArray);
   }
 
-  if (filteredArray.length === 0) {
-    return console.log(
-      "Sorry! we could not find a word that match your requirements"
-    );
-  }
-
   return filteredArray[Math.floor(Math.random() * filteredArray.length)];
 }
 
@@ -49,3 +43,4 @@ function countChars(arrayOfWords) {
   //only leting words with char counted once.
   return singleWordArr;
 }
+
